@@ -37,7 +37,7 @@ user1.saludo()
 user2.saludo()
 
 #NOTA IMPORTANTE
-# No es necesario que el self se llame de esa manera, algunos lenguajes usan this, pero en python
+# No es necesario que el self se llame de esa manera, algunos lenguajes usan la convecnion de this, pero en python
 # no es necesario, ya que python lo reconoce como self aun si le cambiamos el nombre por otro.
 # aunque se recomienda que se llame de esa manera para evitar confusiones
 """
@@ -50,3 +50,34 @@ class User:
     def saludo(lala):
         print('Hola, mi nombre es: ', lala.nombre, lala.apellido)
 """
+
+# Podemos cambiar las propiedades de las instancias de los objetosClasesYHerencia
+user1.nombre = "Ramiro"
+user1.apellido = "Talamantes"
+user1.saludo()
+
+# Tambien podemos eliminar o quitarle propiedades a las instancias de
+del user1.nombre
+#user1.saludo() 
+# En este caso nos dara un error ya que no cuenta con un nombre para mostrar
+
+#Tambien podemos eliminar el objeto por nombreCompleto
+del user1
+# La consola ahora nos arroja que el usuario no se encuentra definido
+#print(user1)
+
+# HERENCIA
+
+# Es un concepto que se usa en POO para poder reutilizar lo maximo posible el codigo en estructuras que sean similares
+
+# Si quisieramos tener una clase de administrador con diferentes metodos y atributos
+class Admin(User):
+    def superSaludo(self):
+        print("Hola me llamo", self.nombre, " y soy administrador")
+
+admin = Admin('Super','Feliz')
+admin.saludo()
+admin.superSaludo()
+#user1.superSaludo() <- no podemos llamar ni los metodos ni propiedades de las clases hijo. ya que no se encuentran definidos dentro de la instancia padre
+
+
